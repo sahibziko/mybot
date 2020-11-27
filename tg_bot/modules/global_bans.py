@@ -18,28 +18,28 @@ from tg_bot.modules.sql.users_sql import get_all_chats
 GBAN_ENFORCE_GROUP = 6
 
 GBAN_ERRORS = {
-    "İstifadəçi qrupda admindir",
-    "Qrup tapılmadı",
-    "Qrup istifadəçisinə ban/mute vermə səlahiyyəti yoxdur",
-    "İstifadəçi_qrupda_yoxdur",
+    "User is an administrator of the chat",
+    "Chat not found",
+    "Not enough rights to restrict/unrestrict chat member",
+    "User_not_participant",
     "Peer_id_invalid",
-    "Qrup söhbəti deaktiv edilib",
-    "İstifadəçini sadə qrupdan atmaq üçün həmin istifadəçinin dəvətçisi olmaq lazımdır",
-    "Qrup_adminliyi_lazımdır",
-    "Sadəcə qrup yaradıcıları adminləri qrupdan ata bilər",
-    "Gizli_kanal",
-    "Qrupda deyil"
+    "Group chat was deactivated",
+    "Need to be inviter of a user to kick it from a basic group",
+    "Chat_admin_required",
+    "Only the creator of a basic group can kick group administrators",
+    "Channel_private",
+    "Not in the chat"
 }
 
 UNGBAN_ERRORS = {
-    "İstifadəçi qrupda admindir",
-    "Qrup tapılmadı",
-    "Qrup istifadəçisinə ban/mute bermə səlahiyyəti yoxdur",
-    "İstifadəçi_qrupda_yoxdur",
-    "Əmr sadəcə superqruplar və kanal söhbətləri üçündür",
-    "Qrupda deyil",
-    "Gizli_kanal",
-    "Qrup_adminliyi_lazımdır",
+    "User is an administrator of the chat",
+    "Chat not found",
+    "Not enough rights to restrict/unrestrict chat member",
+    "User_not_participant",
+    "Method is available for supergroup and channel chats only",
+    "Not in the chat",
+    "Channel_private",
+    "Chat_admin_required",
 }
 
 
