@@ -89,7 +89,7 @@ def log_user(bot: Bot, update: Update):
 @run_async
 def chats(bot: Bot, update: Update):
     all_chats = sql.get_all_chats() or []
-    chatfile = 'List of chats.\n'
+    chatfile = 'Botun olduğu qruplar.\n'
     for chat in all_chats:
         chatfile += "{} - ({})\n".format(chat.chat_name, chat.chat_id)
 
@@ -101,9 +101,9 @@ def chats(bot: Bot, update: Update):
 
 def __user_info__(user_id):
     if user_id == dispatcher.bot.id:
-        return """I've seen them in... Wow. Are they stalking me? They're in all the same places I am... oh. It's me."""
+        return """Vau bu gözəl kimdi?... Oh bu mənəm😍."""
     num_chats = sql.get_user_num_chats(user_id)
-    return """I've seen them in <code>{}</code> chats in total.""".format(num_chats)
+    return """Mən onu <code>{}</code> ədəd qrupda görmüşəm.""".format(num_chats)
 
 
 def __stats__():
