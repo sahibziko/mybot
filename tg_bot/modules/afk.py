@@ -8,6 +8,7 @@ from tg_bot import dispatcher
 from tg_bot.modules.disable import DisableAbleCommandHandler, DisableAbleRegexHandler
 from tg_bot.modules.sql import afk_sql as sql
 from tg_bot.modules.users import get_user_id
+import time
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
