@@ -12,29 +12,33 @@ from tg_bot.modules.users import get_user_id
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
 
-
+@user_admin
 @run_async
 def afk(bot: Bot, update: Update):
+    chat = update.effective_chat  # type: Optional[Chat]
     args = update.effective_message.text.split(None, 1)
     if len(args) >= 2:
         reason = args[1]
     else:
         reason = ""
-
+    global start_time 
+    start_time = time.time()
     sql.set_afk(update.effective_user.id, reason)
-    update.effective_message.reply_text("{} burada deyil ! ".format(update.effective_user.first_name))
+    fname = update.effective_user.first_name
+    update.effective_message.reply_text(tld(chat.id, f"{fname} is now AFK!"))
 
 
 @run_async
 def no_longer_afk(bot: Bot, update: Update):
     user = update.effective_user  # type: Optional[User]
-
+    chat = update.effective_chat  # type: Optional[Chat]
     if not user:  # ignore channels
         return
 
     res = sql.rm_afk(user.id)
     if res:
-        update.effective_message.reply_text("{} gəldi. Xoş gəldin.😊 !".format(update.effective_user.first_name))
+        firstname = update.effective_user.first_name
+        update.effective_message.reply_text(tld(chat.id, f"{firstname} is no longer AFK !"))
 
 
 @run_async
@@ -58,28 +62,31 @@ def reply_afk(bot: Bot, update: Update):
             else:
                 return
 
-            if sql.is_afk(user_id):
-                user = sql.check_afk_status(user_id)
-                if not user.reason:
-                    res = "{} burada deyil ! səbəb :\n{} ".format(fst_name)
-                else:
-                    res = "{} burada deyil ! səbəb :\n{}. ".format(fst_name, user.reason)
-                message.reply_text(res)
+            check_afk(bot, update, user_id, fst_name)
+
+    elif message.reply_to_message:
+        user_id = message.reply_to_message.from_user.id
+        fst_name = message.reply_to_message.from_user.first_name
+        check_afk(bot, update, user_id, fst_name)
 
 
-__help__ = """
- - /afk <səbəb>: siz AFK olanda kimsə sizi tag edəndə, mesajınıza reply atanda bot həmin şəxsə AFK olduğunuzu deyər
- - brb <səbə>: afk komutuyla aynı - ancak bir komut değil.
-AFK olaraq qeydə alındığınızda, kimsə sizi tag etsə, reply atsa bot ona mesaj yazar.AFK olmağınızın səbəbini də yaza bilərsiniz!
-"""
+def check_afk(bot, update, user_id, fst_name):
+    chat = update.effective_chat  # type: Optional[Chat]
+    if sql.is_afk(user_id):
+        user = sql.check_afk_status(user_id)
+        elapsed_time = time.time() - start_time 
+        final = time.strftime("%Hh: %Mm: %Ss", time.gmtime(elapsed_time))
+        if not user.reason:
+            res = tld(chat.id, f"{fst_name} is AFK !\n\nLast seen {final} ago")
+        else:
+            res = tld(chat.id, f"{fst_name} is AFK !\n\nReason: {user.reason}\n\nLast seen {final} ago") 
+        update.effective_message.reply_text(res)
 
-__mod_name__ = "AFK"
 
 AFK_HANDLER = DisableAbleCommandHandler("afk", afk)
 AFK_REGEX_HANDLER = DisableAbleRegexHandler("(?i)brb", afk, friendly="afk")
 NO_AFK_HANDLER = MessageHandler(Filters.all & Filters.group, no_longer_afk)
-AFK_REPLY_HANDLER = MessageHandler(Filters.entity(MessageEntity.MENTION) | Filters.entity(MessageEntity.TEXT_MENTION),
-                                   reply_afk)
+AFK_REPLY_HANDLER = MessageHandler(Filters.all & Filters.group, reply_afk)
 
 dispatcher.add_handler(AFK_HANDLER, AFK_GROUP)
 dispatcher.add_handler(AFK_REGEX_HANDLER, AFK_GROUP)
