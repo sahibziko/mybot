@@ -167,19 +167,13 @@ def save(bot: Bot, update: Update):
     sql.add_note_to_db(chat_id, note_name, text, data_type, buttons=buttons, file=content)
 
     msg.reply_text(
-        "OK, *{chat_name}* qrupundan {note_name} notunu save elədim.\nNotu /get {note_name}, və ya #{note_name} yazaraq çağıra bilərsiniz".format(chat_name=chat_name, note_name=note_name), parse_mode=ParseMode.MARKDOWN)
+        "OK, *{chat_name}* qrupunda {note_name} notunu save elədim.\nNotu /get {note_name}, və ya #{note_name} yazaraq çağıra bilərsiniz".format(chat_name=chat_name, note_name=note_name), parse_mode=ParseMode.MARKDOWN)
 
     if msg.reply_to_message and msg.reply_to_message.from_user.is_bot:
         if text:
-            msg.reply_text("Seems like you're trying to save a message from a bot. Unfortunately, "
-                           "bots can't forward bot messages, so I can't save the exact message. "
-                           "\nI'll save all the text I can, but if you want more, you'll have to "
-                           "forward the message yourself, and then save it.")
+            msg.reply_text("Bir bot tərəfindən yönləndirilən mesaj not ola bilməz.")
         else:
-            msg.reply_text("Bots are kinda handicapped by telegram, making it hard for bots to "
-                           "interact with other bots, so I can't save this message "
-                           "like I usually would - do you mind forwarding it and "
-                           "then saving that new message? Thanks!")
+            msg.reply_text("pf xəta. Mesajı özün yenidən yazıb save elə!")
         return
 
 
@@ -203,9 +197,9 @@ def clear(bot: Bot, update: Update, args: List[str]):
         notename = args[0]
 
         if sql.rm_note(chat_id, notename):
-            update.effective_message.reply_text("Successfully removed note.")
+            update.effective_message.reply_text("Not uğurla silindi.")
         else:
-            update.effective_message.reply_text("That's not a note in my database!")
+            update.effective_message.reply_text("Belə bir not yoxdur!")
 
 
 @run_async
@@ -217,7 +211,7 @@ def list_notes(bot: Bot, update: Update):
     if not conn == False:
         chat_id = conn
         chat_name = dispatcher.bot.getChat(conn).title
-        msg = "*Notes in {}:*\n"
+        msg = "*{} qrupundakı notlar:*\n"
     else:
         chat_id = update.effective_chat.id
         if chat.type == "private":
@@ -225,7 +219,8 @@ def list_notes(bot: Bot, update: Update):
             msg = "*Local Notes:*\n"
         else:
             chat_name = chat.title
-            msg = "*Notes in {}:*\n"
+            msg = "*
+            "{} qrupundakı notlar:*\n"
 
     note_list = sql.get_all_chat_notes(chat_id)
 
@@ -236,8 +231,8 @@ def list_notes(bot: Bot, update: Update):
             msg = ""
         msg += note_name
 
-    if msg == "*Notes in chat:*\n":
-        update.effective_message.reply_text("No notes in this chat!")
+    if msg == "*Qrupdakı notlar:*\n":
+        update.effective_message.reply_text("Bu qrupda not yoxdur!")
 
     elif len(msg) != 0:
         update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
@@ -266,7 +261,7 @@ def __import_data__(chat_id, data):
 
 
 def __stats__():
-    return "{} notes, across {} chats.".format(sql.num_notes(), sql.num_chats())
+    return "{} ədəd not, ümumi {} qrupda.".format(sql.num_notes(), sql.num_chats())
 
 
 def __migrate__(old_chat_id, new_chat_id):
@@ -275,23 +270,20 @@ def __migrate__(old_chat_id, new_chat_id):
 
 def __chat_settings__(chat_id, user_id):
     notes = sql.get_all_chat_notes(chat_id)
-    return "There are `{}` notes in this chat.".format(len(notes))
+    return "Bu qrupda `{}` ədəd not var.".format(len(notes))
 
 
 __help__ = """
- - /get <notename>: get the note with this notename
- - #<notename>: same as /get
- - /notes or /saved: list all saved notes in this chat
+ - /get <notename>: notu çağırır
+ - #<notename>: yuxarıdakı ilə eyni
+ - /notes və ya /saved: qrupdakı notları göstərir
 
-If you would like to retrieve the contents of a note without any formatting, use `/get <notename> noformat`. This can \
-be useful when updating a current note.
 
-*Admin only:*
- - /save <notename> <notedata>: saves notedata as a note with name notename
-A button can be added to a note by using standard markdown link syntax - the link should just be prepended with a \
-`buttonurl:` section, as such: `[somelink](buttonurl:example.com)`. Check /markdownhelp for more info.
- - /save <notename>: save the replied message as a note with name notename
- - /clear <notename>: clear note with this name
+*Sadəcə adminlər:*
+ - /save <not adı> <not>: not əlavə edir
+Nota button əlavə etmək olar. Məsələn: [yazı](buttonurl:sayt.com)`. /markdownhelp yazaraq daha çox məlumat əldə edə bilərsiniz.
+ - /save <not adı>: yanıtlanan mesajı not olaraq yadda saxlayır
+ - /clear <not adı>: notu silir
 """
 
 __mod_name__ = "Notes"
