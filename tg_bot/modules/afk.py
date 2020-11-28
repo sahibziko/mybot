@@ -12,7 +12,6 @@ from tg_bot.modules.users import get_user_id
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
 
-@user_admin
 @run_async
 def afk(bot: Bot, update: Update):
     chat = update.effective_chat  # type: Optional[Chat]
