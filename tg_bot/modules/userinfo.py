@@ -113,7 +113,7 @@ def __user_info__(user_id):
 
 
 __help__ = """
- - /setbio <mətn>: kiminsı mesajınə reply verib onun haqqında bio yazır
+ - /setbio <mətn>: kiminsə mesajına reply verib onun haqqında bio yazır
  - /bio: sənin bio vu göstərir. Öz bio vu özün yza bilmərsən.
  - /setme <mətn>: öz biovu yazmaq üçün bu əmrdən istifadə edin
  - /me: sən və ya başqası haqqında bio zad zud
