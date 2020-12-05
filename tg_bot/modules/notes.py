@@ -219,7 +219,7 @@ def list_notes(bot: Bot, update: Update):
             msg = "*Local Notes:*\n"
         else:
             chat_name = chat.title
-            msg = "*
+            msg = "*"
             "{} qrupundakı notlar:*\n"
 
     note_list = sql.get_all_chat_notes(chat_id)
