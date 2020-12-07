@@ -246,11 +246,11 @@ def info(bot: Bot, update: Update, args: List[str]):
     text += "\nLink: {}".format(mention_html(user.id, "link"))
 
     if user.id == OWNER_ID:
-        text += "\n\nBu, mənim sahibim Rihad ustadır. Onun üxərində heç bir əmr etməyəcəm əvvəlcədən deyim!"
+        text += "\n\nBu, mənim sahibimdir. Onun üzərində heç bir əmr etməyəcəm əvvəlcədən deyim!"
     else:
         if user.id in SUDO_USERS:
-            text += "\nBu şəxs mənim sudo istofadəçilərimdən biridir! " \
-                    "Deməy olar ki sahibim qədər güclüdür - nəzərə al yəni."
+            text += "\nBu şəxs mənim sudo istifadəçilərimdən biridir! " \
+                    "Demək olar ki sahibim qədər güclüdür - nəzərə al yəni."
         else:
             if user.id in SUPPORT_USERS:
                 text += "\nBu şəxs mənim support istifadəçilərimdən biridir! " \
