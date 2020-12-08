@@ -76,7 +76,7 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text("Sən dəlisən? Özümü ban etməyəcəm!")
+        message.reply_text("Sən Həqiqətən Malsan! Özümü ban etməyəcəm!")
         return ""
 
     log = "<b>{}:</b>" \
@@ -98,13 +98,13 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text('Banlandı!', quote=False)
+            message.reply_text('Səni Mal Banlandın!', quote=False)
             return log
         else:
             LOGGER.warning(update)
             LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text("pü. Bu istifadəçini ban edə bilmirəm.")
+            message.reply_text("Heyif Ban atmağı sevirəm ama Bu istifadəçini ban edə bilmirəm.")
 
     return ""
 
@@ -139,7 +139,7 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text("Sən dəlisən? Özümü ban etməyəcəm!")
+        message.reply_text("Sən tam bir Malsan Özümü ban etməyəcəm!")
         return ""
 
     if not reason:
@@ -177,7 +177,7 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text("Banlandı! istifadəçi {} müddətlik banlandı.".format(time_val), quote=False)
+            message.reply_text("Banlandın za! istifadəçi {} müddətlik banlandı.".format(time_val), quote=False)
             return log
         else:
             LOGGER.warning(update)
@@ -217,7 +217,7 @@ def kick(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text("Sən dəlisən? Özümü qrupdan çıxarmıyacam!")
+        message.reply_text("Sən Malsan? Özümü qrupdan çıxarmıyacam!")
         return ""
 
     res = chat.unban_member(user_id)  # unban on current user = kick
@@ -290,7 +290,7 @@ def unban(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     chat.unban_member(user_id)
-    message.reply_text("Yep, İstifadəçi artıq qoşula bilər!")
+    message.reply_text("Yuppi, İstifadəçi artıq qoşula bilər!")
 
     log = "<b>{}:</b>" \
           "\n#UNBANNED" \
