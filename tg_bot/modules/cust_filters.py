@@ -243,7 +243,7 @@ def reply_filter(bot: Bot, update: Update):
                                          disable_web_page_preview=True,
                                          reply_markup=keyboard)
                     else:
-                        message.reply_text("Bu qeyd səhv biçimləndiyindən göndərilə bilmədi. @PakizeSupport'dan "
+                        message.reply_text("Bu qeyd səhv biçimləndiyindən göndərilə bilmədi. @Qagasupport'dan "
                                            "kömək istəyə bilərsiniz!")
                         LOGGER.warning("Message %s could not be parsed", str(filt.reply))
                         LOGGER.exception("Could not parse filter %s in chat %s", str(filt.keyword), str(chat.id))
