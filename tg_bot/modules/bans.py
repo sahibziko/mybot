@@ -76,7 +76,7 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text("Sən dəlisən? Özümü ban etməyəcəm!")
+        message.reply_text("Sən Bir Malsan Özümü ban etməyəcəm!")
         return ""
 
     log = "<b>{}:</b>" \
@@ -91,20 +91,20 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
         chat.kick_member(user_id)
         bot.send_sticker(chat.id, BAN_STICKER)  # ban sticker
         keyboard = []
-        reply = "{} Banlandı!".format(mention_html(member.user.id, member.user.first_name))
+        reply = "{} Səni Mal Banlandın!".format(mention_html(member.user.id, member.user.first_name))
         message.reply_text(reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
         return log
 
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text('Banlandı!', quote=False)
+            message.reply_text('Səni mal Banlandın!', quote=False)
             return log
         else:
             LOGGER.warning(update)
             LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text("pü. Bu istifadəçini ban edə bilmirəm.")
+            message.reply_text("Ban etməyi sevirəm ama nu istifadəçini ban edə bilmirəm.")
 
     return ""
 
@@ -135,11 +135,11 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("ehh adminləri ban etməyi arzulayuram amma təəssüf...")
+        message.reply_text("kaş adminləri ban etmək olsaydı amma bu mümkün deyl ...")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("Sən dəlisən? Özümü ban etməyəcəm!")
+        message.reply_text("Səni mal özümü ban etməyəcəm!")
         return ""
 
     if not reason:
@@ -171,19 +171,19 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
     try:
         chat.kick_member(user_id, until_date=bantime)
         bot.send_sticker(chat.id, BAN_STICKER)  # sticker
-        message.reply_text("Banlandı! istifadəçi {} müddətlik banlandı.".format(time_val))
+        message.reply_text("Banlandı! istifadəçi {} müddətlik banlandı yaxşı qurtardn dostum:).".format(time_val))
         return log
 
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text("Banlandı! istifadəçi {} müddətlik banlandı.".format(time_val), quote=False)
+            message.reply_text("Banlandı! istifadəçi {} müddətlik banlandı. yaxşə qurtardn dostum:)".format(time_val), quote=False)
             return log
         else:
             LOGGER.warning(update)
             LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text("pü. Bu istifadəçini ban edə bilmirəm.")
+            message.reply_text("Ban atmağı sevirəm ama bu istifadəçini ban edə bilmirəm.")
 
     return ""
 
@@ -213,7 +213,7 @@ def kick(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id):
-        message.reply_text("ehh adminləri qrupdan çıxarmağı arzulayuram amma təəssüf...")
+        message.reply_text("Kaş hərkəsə ban vermək olsaydı ama adminlərə ban vermək təəssüf...")
         return ""
 
     if user_id == bot.id:
