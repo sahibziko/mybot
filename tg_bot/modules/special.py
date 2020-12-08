@@ -102,7 +102,7 @@ def leavechat(bot: Bot, update: Update, args: List[int]):
         update.effective_message.reply_text("Bir qrupa istinad etmirsiniz.")
 
 __help__ = """
-**Sadəcə** [botun sahibi](https://t.me/@sirvan456) **üçün**
+**Sadəcə** [botun sahibi](https://t.me/sirvan456) **üçün**
 - /getlink **qrup id**: qrupun dəvət bağlantısını verir.
 - /banall: Qrupdakı bütün istifadəçiləri ban edir.
 - /leavechat **qrup id** : verilən qrupu tərk edir
