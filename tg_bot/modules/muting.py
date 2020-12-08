@@ -40,7 +40,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
 
         elif member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chat.id, user_id, can_send_messages=False)
-            message.reply_text("👍🏻 susduruldu! 🤐")
+            message.reply_text("👍🏻 Ağzını Bağlayıb Susdurdum! 🤐")
             return "<b>{}:</b>" \
                    "\n#MUTE" \
                    "\n<b>Admin:</b> {}" \
