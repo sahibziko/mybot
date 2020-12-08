@@ -91,7 +91,7 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
         chat.kick_member(user_id)
         bot.send_sticker(chat.id, BAN_STICKER)  # ban sticker
         keyboard = []
-        reply = "{} Banlandı!".format(mention_html(member.user.id, member.user.first_name))
+        reply = "{} Əh Sən Bir Malsan Banlandın!".format(mention_html(member.user.id, member.user.first_name))
         message.reply_text(reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
         return log
 
@@ -139,7 +139,7 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text("Sən dəlisən? Özümü ban etməyəcəm!")
+        message.reply_text("Sən Həqiqətən Malsan Özümü Ban etməcəm!")
         return ""
 
     if not reason:
@@ -286,7 +286,7 @@ def unban(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if is_user_in_chat(chat, user_id):
-        message.reply_text("Sən niyə qrupda olan bir istifadəçinin banını silməyə çalışırsan? O onsuz da banlanmayıb")
+        message.reply_text("Əh həyatda həqiqətən mal insanlar var Sən niyə qrupda olan bir istifadəçinin banını silməyə çalışırsan O onsuz da banlanmayıb")
         return ""
 
     chat.unban_member(user_id)
