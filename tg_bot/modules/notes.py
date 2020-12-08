@@ -111,7 +111,7 @@ def get(bot, update, notename, show_none=True, no_format=False):
                     sql.rm_note(chat_id, notename)
                 else:
                     message.reply_text("Əməliyyat səf formatlandığına görə uğursuz oldu. Problemi anlamadınızsa "
-                                       "@PakizeSupport qrupundan kömək istəyin!")
+                                       "@Qagasupport qrupundan kömək istəyin!")
                     LOGGER.exception("Could not parse message #%s in chat %s", notename, str(chat_id))
                     LOGGER.warning("Message was: %s", str(note.value))
         return
