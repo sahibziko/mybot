@@ -1,6 +1,6 @@
 
 {
-  "name": "Pakizə",
+  "name": "qagasbot",
   "description": "Azərbaycanca olan qrup idarə botu!",
   "keywords": [
     "telegram",
@@ -9,7 +9,7 @@
     "manager",
     "3"
   ],
-  "repository": "hhttps://github.com/Mensimov/Marie-Azerbaijan",
+  "repository": "hhttps://github.com/Goqerti/Marie-Azerbaijan",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable env variables",
@@ -21,11 +21,11 @@
     },
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
-      "value": "1176737052"
+      "value": "1181678770"
     },
     "OWNER_USERNAME": {
       "description": "Your username",
-      "value": "rihad"
+      "value": "Şirvan"
     },
     "WEBHOOK": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode messages",
@@ -41,15 +41,15 @@
     },
     "SUDO_USERS": {
       "description": "A space separated list of user_ids which should be considered sudo users",
-      "value": "1173233703"
+      "value": "1181678770"
     },
     "SUPPORT_USERS": {
       "description": "A space separated list of user_ids which should be considered support users (can gban/ungban, nothing else)",
-      "value": "1176737052"
+      "value": "1181678770"
     },
     "WHITELIST_USERS": {
       "description": "A space separated list of user_ids which should be considered whitelisted - they can't be banned.",
-      "value": "1176737052"
+      "value": "1181678770"
     },
     "DONATION_LINK": {
       "description": "Optional: link where you would like to receive donations.",
