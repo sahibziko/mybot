@@ -91,7 +91,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
 
         return
 
-    message.reply_text("⚡️ Pakizə şaqqalıyır ⚡️")
+    message.reply_text("OHA SƏN GBAN ALDIN😳 TƏƏSÜFKİ GBAN VERƏN ŞƏXS SƏNİ BAĞIŞLAMASA MƏNDƏ SƏNİ BAĞIŞLAYA Bİlmərəm🤕")
 
     banner = update.effective_user  # type: Optional[User]
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
@@ -155,7 +155,7 @@ def ungban(bot: Bot, update: Update, args: List[str]):
 
     banner = update.effective_user  # type: Optional[User]
 
-    message.reply_text("{}, səni qlobal olaraq ikinci bir şansla bağışlayıram.".format(user_chat.first_name))
+    message.reply_text("{}, səni qlobal olaraq ikinci bir şansla bağışlayıram😏.".format(user_chat.first_name))
 
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
                  "<b>Regression of Global Ban</b>" \
