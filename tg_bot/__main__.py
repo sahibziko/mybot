@@ -28,7 +28,7 @@ Bütün əmrlər üçün klik et /help...
 
 HELP_STRINGS = """
 
-Salam! mənim adım *{}*dir.
+Salam! mənim adım *{}*dur.
 
 *Əsas* mövcud əmrlər:
  - /start: Botu başladır...
@@ -42,7 +42,7 @@ Və aşağıdakılar:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nBütün əmrlər  / və ya ! ilə işlədilə bilir...\n")
 
 DONATE_STRING = """Oh bəxşiş. Sahibimin bəxşişə ehtiyyacı yoxdu düzdür kasıb adamdır amma ehtiyyacı yoxdu amma siz mənə dəstək olmaq üçün 
-[blog kanalıma](https://t.me/rihads) abunə ola bilərsiniz.😊"""
+[blog kanalıma](https://t.me/s1rvann) abunə ola bilərsiniz.😊"""
 
 IMPORTED = {}
 MIGRATEABLE = []
