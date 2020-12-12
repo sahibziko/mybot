@@ -69,7 +69,7 @@ def reply_afk(bot: Bot, update: Update):
 
 __help__ = """
  - /afk <səbəb>: AFK olmaq.
- - brb <səbəb>: AFK olmaq.
+ - Problemlər olarsa: @Qagasupport
 
 Siz afk olduğunuz zaman sizi tag edənlər haqqında bildiriş almayacaqsız.
 """
