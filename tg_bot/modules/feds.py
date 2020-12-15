@@ -6,16 +6,16 @@ import time
 import uuid
 from io import BytesIO
 
-import tg_bot.modules.sql.feds_sql as sql
-from tg_bot import (EVENT_LOGS, LOGGER, OWNER_ID, DRAGONS, TIGERS, WOLVES,
+import modules.sql.feds_sql as sql
+from   import (EVENT_LOGS, LOGGER, OWNER_ID, DRAGONS, TIGERS, WOLVES,
                           dispatcher)
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.alternate import send_message
-from tg_bot.modules.helper_funcs.chat_status import is_user_admin
-from tg_bot.modules.helper_funcs.extraction import (extract_unt_fedban,
+from modules.disable import DisableAbleCommandHandler
+from modules.helper_funcs.alternate import send_message
+from modules.helper_funcs.chat_status import is_user_admin
+from modules.helper_funcs.extraction import (extract_unt_fedban,
                                                           extract_user,
                                                           extract_user_fban)
-from tg_bot.helper_funcs.string_handling import markdown_parser
+from helper_funcs.string_handling import markdown_parser
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, MessageEntity,
                       ParseMode, Update)
 from telegram.error import BadRequest, TelegramError, Unauthorized
