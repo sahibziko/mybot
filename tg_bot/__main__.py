@@ -22,6 +22,10 @@ Salam {}, mənim adım *{}*dur! məni işlətmək ilə bağlı kömək almaq ü�
 
 mən [bu insan](tg://user?id={}) tərəfindən tərcümə edilən tamamilə Azərbaycanca olan qrup idarə botuyam🌲🇦🇿.
 
+Support [qrupumuz](tg://qagasupport) Buradan İrad və Təkliflərinizi Bizə Bildirə Bilərsiniz🌲.
+
+Yeniliklər Haqqında [kanalımız](tg://qagasbotkanal) 🌲🎅.
+
 Bütün əmrlər üçün klik et🌲  /help...
 
 """
@@ -135,7 +139,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN)
     else:
-        update.effective_message.reply_text("Hohoho Həpi Niyu yiə Mən burdayam🤗🎅🌲")
+        update.effective_message.reply_text("Ho-Ho-Ho Həpi Niyu yiə Mən burdayam🎅🤗")
 
 
 # for test purposes
