@@ -22,10 +22,6 @@ Salam {}, mənim adım *{}*dur! məni işlətmək ilə bağlı kömək almaq ü�
 
 mən [bu insan](tg://user?id={}) tərəfindən tərcümə edilən tamamilə Azərbaycanca olan qrup idarə botuyam🌲🇦🇿.
 
-Support [qrupumuz](https://t.me/qagasupport) Buradan İrad və Təkliflərinizi Bizə Bildirə Bilərsiniz🌲.
-
-Yeniliklər Haqqında [kanalımız](https://t.me/qagasbotkanal) 🌲🎅.
-
 Bütün əmrlər üçün klik et🌲  /help...
 
 """
@@ -37,8 +33,10 @@ Salam! mənim adım *{}*dur.
 *Əsas* mövcud əmrlər:
  - /start: Botu başladır🌲☃️...
  - /help: kömək🌲☃️....
- - /settings:
  - /donate: Bu Düymə ilə mənə bəxşiş verə bilərsən☺🎅...
+ - /settings:
+ - Support Qrupumuz: @qagasupport
+ - Yeniliklər Haqqında Kanalımız: @qagasbotkanal
    - PM    : müxtəlif konfiqurasiyalar etməkdə köməkçi olacaq (PM -də)....
    - qrupda: birbaşa qrupda da edə bilərsiniz☃️🌲
 
