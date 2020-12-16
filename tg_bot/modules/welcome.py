@@ -133,7 +133,7 @@ def new_member(bot: Bot, update: Update):
         for new_mem in new_members:
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
-                update.effective_message.reply_text("*Yol verin botun sahibi @sirvan456 ustam gəldi*!")
+                update.effective_message.reply_text("*Çəkülün qırağa botun sahibi @sirvan456 usta gəldi*!")
                 continue
 
             # Don't welcome yourself
@@ -201,7 +201,7 @@ def left_member(bot: Bot, update: Update):
 
             # Give the owner a special goodbye
             if left_mem.id == OWNER_ID:
-                update.effective_message.reply_text("Heyif @sirvan456 ustam qrupdan ayrıldı.😔")
+                update.effective_message.reply_text("pff @sirvan456 usta qrupdan ayrıldı.😔")
                 return
 
             # if media goodbye, use appropriate function for it
