@@ -22,9 +22,9 @@ Salam {}, mənim adım *{}*dur! məni işlətmək ilə bağlı kömək almaq ü�
 
 mən [bu insan](tg://user?id={}) tərəfindən tərcümə edilən tamamilə Azərbaycanca olan qrup idarə botuyam🌲🇦🇿.
 
-Support [qrupumuz](tg://qagasupport) Buradan İrad və Təkliflərinizi Bizə Bildirə Bilərsiniz🌲.
+Support [qrupumuz](https://t.me/qagasupport) Buradan İrad və Təkliflərinizi Bizə Bildirə Bilərsiniz🌲.
 
-Yeniliklər Haqqında [kanalımız](tg://qagasbotkanal) 🌲🎅.
+Yeniliklər Haqqında [kanalımız](https://t.me/qagasbotkanal) 🌲🎅.
 
 Bütün əmrlər üçün klik et🌲  /help...
 
