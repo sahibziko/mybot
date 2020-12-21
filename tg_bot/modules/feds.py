@@ -1821,11 +1821,10 @@ def get_chat(chat_id, chat_data):
 __mod_name__ = "Federasiya"
 
 __help__ = """
-Ah, group management. Everything is fun, until the spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
-But then you have many groups, and you don't want this spammer to be in one of your groups - how can you deal? Do you have to manually block it, in all your groups?
-
-No longer! With Federation, you can make a ban in one chat overlap with all other chats.
-You can even designate admin federations, so your trusted admin can ban all the chats you want to protect.
+Ah, qrup rəhbərliyi. Spammer qrupunuza girməyə başlayana qədər hər şey əyləncəlidir və onu bloklamalısınız. O zaman daha çox qadağa qoymağa başlamalısan və daha çox zərər verir. 
+Ancaq sonra bir çox qrupunuz var və bu spammerin qruplarınızdan birində olmasını istəmirsiniz - necə davrana bilərsiniz? 
+Bütün qruplarınızda əl ilə bloklamalısınız? Artıq yox! Federasiya ilə bir söhbətdə bütün digər söhbətlərlə üst-üstə düşən bir qadağa edə bilərsiniz. 
+Hətta administrator federasiyalarını da təyin edə bilərsiniz, beləliklə etibarlı rəhbəriniz qorumaq istədiyiniz bütün söhbətləri qadağan edə bilər.
 
 Command:
  - /newfed <fedname>: Create a new Federation with the name given. Users are only allowed to have one Federation. This method can also be used to rename the Federation. (max. 64 characters)
