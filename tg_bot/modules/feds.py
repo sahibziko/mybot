@@ -97,7 +97,7 @@ def new_fed(bot: Bot, update: Update):
 
 		x = sql.new_fed(user.id, fed_name, fed_id)
 		if not x:
-			update.effective_message.reply_text("Can't federate! Please contact @OnePunchSupport if the problem persists.")
+			update.effective_message.reply_text("Can't federate! Please contact @Qagasupport if the problem persists.")
 			return
 
 		update.effective_message.reply_text("*You have succeeded in creating a new federation!*"\
