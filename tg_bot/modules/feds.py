@@ -74,7 +74,7 @@ UNFBAN_ERRORS = {
 def new_fed(bot: Bot, update: Update):
 	spam = spamfilters(update.effective_message.text, update.effective_message.from_user.id, update.effective_chat.id)
 	if spam == True:
-		return update.effective_message.reply_text("Spammer detected! *Ignores user*")
+		return update.effective_message.reply_text("Spammer aşkarlandı! İstifadəçini görməzdən gəldi")
 
 	chat = update.effective_chat  # type: Optional[Chat]
 	user = update.effective_user  # type: Optional[User]
