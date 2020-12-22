@@ -1,18 +1,18 @@
-import os
+import hashlib
 import math
-import requests
+import os
 import urllib.request as urllib
+from typing import List
+
 from PIL import Image
-from html import escape
-from bs4 import BeautifulSoup as bs
-
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram import TelegramError, Update
-from telegram.ext import run_async, CallbackContext
-from telegram.utils.helpers import mention_html
+from telegram import TelegramError
+from telegram import Update, Bot
+from telegram.ext import run_async
+from telegram.utils.helpers import escape_markdown
 
-from SaitamaRobot import dispatcher
-from SaitamaRobot.modules.disable import DisableAbleCommandHandler
+from tg_bot import dispatcher
+from tg_bot.modules.disable import DisableAbleCommandHandler
 
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
 
@@ -22,7 +22,7 @@ def stickerid(update: Update, context: CallbackContext):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.sticker:
         update.effective_message.reply_text(
-            "Salam " +
+            "Sticker " +
             f"{mention_html(msg.from_user.id, msg.from_user.first_name)}" +
             ", Yanıt verdiyin stikerin ID :\n <code>" +
             escape(msg.reply_to_message.sticker.file_id) + "</code>",
@@ -30,7 +30,7 @@ def stickerid(update: Update, context: CallbackContext):
         )
     else:
         update.effective_message.reply_text(
-            "Salam " +
+            "Sticker " +
             f"{mention_html(msg.from_user.id, msg.from_user.first_name)}" +
             ", Zəhmət olmasa bir stikerə yanıt ver",
             parse_mode=ParseMode.HTML,
@@ -122,7 +122,7 @@ def kang(update: Update, context: CallbackContext):
         elif msg.reply_to_message.sticker and msg.reply_to_message.sticker.emoji:
             sticker_emoji = msg.reply_to_message.sticker.emoji
         else:
-            sticker_emoji = "😳"
+            sticker_emoji = "🤔"
 
         if not is_animated:
             try:
@@ -262,7 +262,7 @@ def kang(update: Update, context: CallbackContext):
                 png_sticker = urlemoji[1]
                 sticker_emoji = urlemoji[2]
             except IndexError:
-                sticker_emoji = "😳"
+                sticker_emoji = "🤔"
             urllib.urlretrieve(png_sticker, kangsticker)
             im = Image.open(kangsticker)
             maxsize = (512, 512)
