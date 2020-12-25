@@ -36,7 +36,7 @@ def lyrics(bot: Bot, update: Update, args: List[str]):
                 " ", "_"), song[1].replace(" ", "_"))
             return update.effective_message.reply_text(lyrics + lyricstext, parse_mode="MARKDOWN")
     else:
-        return update.effective_message.reply_text("Hayda Xəta Diyəsən bu növdə əmr verməlisən İFAÇI+MUSİQİ ADI:), failed=True)
+        return update.effective_message.reply_text("Hayda Xəta Diyəsən bu növdə əmr verməlisən İFAÇI+MUSİQİ ADI:)"), failed=True)
 
 
 __help__ = """
