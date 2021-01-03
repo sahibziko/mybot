@@ -22,7 +22,7 @@ def afk(bot: Bot, update: Update):
         reason = ""
 
     sql.set_afk(update.effective_user.id, reason)
-    update.effective_message.reply_text("{} artıq afk-dır🎅! ".format(update.effective_user.first_name))
+    update.effective_message.reply_text("{} artıq afk-dır! ".format(update.effective_user.first_name))
 
 
 @run_async
@@ -34,7 +34,7 @@ def no_longer_afk(bot: Bot, update: Update):
 
     res = sql.rm_afk(user.id)
     if res:
-        update.effective_message.reply_text("{} artıq afk deyil🌲!".format(update.effective_user.first_name))
+        update.effective_message.reply_text("{} artıq afk deyil!".format(update.effective_user.first_name))
 
 
 @run_async
@@ -61,15 +61,15 @@ def reply_afk(bot: Bot, update: Update):
             if sql.is_afk(user_id):
                 user = sql.check_afk_status(user_id)
                 if not user.reason:
-                    res = "{} afk-dır🌲! səbəb :\n{} ".format(fst_name)
+                    res = "{} afk-dır! səbəb :\n{} ".format(fst_name)
                 else:
-                    res = "{} afk-dır🌲! səbəb :\n{}. ".format(fst_name, user.reason)
+                    res = "{} afk-dır! səbəb :\n{}. ".format(fst_name, user.reason)
                 message.reply_text(res)
 
 
 __help__ = """
- - /afk <səbəb>: AFK olmaq🌲.
- - Problemlər Olarsa: @Qagasupport 🤗🌲
+ - /afk <səbəb>: AFK olmaq.
+ - Problemlər Olarsa: @Qagasupport 🤗
 
 
 Siz afk olduğunuz zaman sizi tag edənlər haqqında bildiriş almayacaqsız.
