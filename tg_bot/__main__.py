@@ -18,11 +18,11 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Salam {}, mənim adım *{}*dur! məni işlətmək ilə bağlı kömək almaq üçün /help yazmağın kifayətdir☃️🌲... 
+Salam {}, mənim adım *{}*dur! məni işlətmək ilə bağlı kömək almaq üçün /help yazmağın kifayətdir... 
 
-mən [bu insan](tg://user?id={}) tərəfindən tərcümə edilən tamamilə Azərbaycanca olan qrup idarə botuyam🌲🇦🇿.
+mən [bu insan](tg://user?id={}) tərəfindən tərcümə edilən tamamilə Azərbaycanca olan qrup idarə botuyam🇦🇿.
 
-Bütün əmrlər üçün klik et🌲  /help...
+Bütün əmrlər üçün klik et  /help...
 
 """
 
@@ -31,21 +31,19 @@ HELP_STRINGS = """
 Salam! mənim adım *{}*dur.
 
 *Əsas* mövcud əmrlər:
- - /start: Botu başladır🌲☃️...
- - /help: kömək🌲☃️....
- - /donate: Bu Düymə ilə mənə bəxşiş verə bilərsən☺🎅...
+ - /start: Botu başladır...
+ - /help: kömək....
+ - /donate: Bu Düymə ilə mənə bəxşiş verə bilərsən☺...
  - /settings:
- - Support Qrupumuz: @qagasupport
- - Yeniliklər Haqqında Kanalımız: @qagasbotkanal
    - PM    : müxtəlif konfiqurasiyalar etməkdə köməkçi olacaq (PM -də)....
-   - qrupda: birbaşa qrupda da edə bilərsiniz☃️🌲
+   - qrupda: birbaşa qrupda da edə bilərsiniz
 
 {}
 Və aşağıdakılar:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nBütün əmrlər  / və ya ! ilə işlədilə bilir...\n")
 
 DONATE_STRING = """Oh bəxşiş. Sahibimin bəxşişə ehtiyyacı yoxdu düzdür kasıb adamdır amma ehtiyyacı yoxdu amma siz mənə dəstək olmaq üçün 
-[blog kanalıma](https://t.me/s1rvann) abunə ola bilərsiniz.😊🌲"""
+[blog kanalıma](https://t.me/s1rvann) abunə ola bilərsiniz.😊"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -137,7 +135,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN)
     else:
-        update.effective_message.reply_text("Ho-Ho-Ho Həpi Niyu yiə Mən burdayam🎅")
+        update.effective_message.reply_text("Salam Mən Hazırda İşləyirəm🥰 Mənimlə Bağlı Problemin Olarsa @Qagasupport Support qrupumuza Bildir☺")
 
 
 # for test purposes
@@ -227,7 +225,7 @@ def get_help(bot: Bot, update: Update):
     # ONLY send help in PM
     if chat.type != chat.PRIVATE:
 
-        update.effective_message.reply_text("Mövcud əmrləri görmək üçün mənimlə PM də əlaqəyə keç🌲.",
+        update.effective_message.reply_text("Mövcud əmrləri görmək üçün mənimlə PM də əlaqəyə keç.",
                                             reply_markup=InlineKeyboardMarkup(
                                                 [[InlineKeyboardButton(text="Kömək",
                                                                        url="t.me/{}?start=help".format(
@@ -249,7 +247,7 @@ def send_settings(chat_id, user_id, user=False):
         if USER_SETTINGS:
             settings = "\n\n".join(
                 "*{}*:\n{}".format(mod.__mod_name__, mod.__user_settings__(user_id)) for mod in USER_SETTINGS.values())
-            dispatcher.bot.send_message(user_id, "Bunlar sənin hazırki ayarlarındır🎅🌲:" + "\n\n" + settings,
+            dispatcher.bot.send_message(user_id, "Bunlar sənin hazırki ayarlarındır:" + "\n\n" + settings,
                                         parse_mode=ParseMode.MARKDOWN)
 
         else:
@@ -260,7 +258,7 @@ def send_settings(chat_id, user_id, user=False):
         if CHAT_SETTINGS:
             chat_name = dispatcher.bot.getChat(chat_id).title
             dispatcher.bot.send_message(user_id,
-                                        text="{} qrupunun ayarlarında nəyi dəyişmək istəyirsiniz?☃️".format(
+                                        text="{} qrupunun ayarlarında nəyi dəyişmək istəyirsiniz?".format(
                                             chat_name),
                                         reply_markup=InlineKeyboardMarkup(
                                             paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)))
@@ -296,7 +294,7 @@ def settings_button(bot: Bot, update: Update):
             chat_id = prev_match.group(1)
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
-            query.message.reply_text("Salam! {} Üçün kifayət qədər bir neçə parametr var🎅. "
+            query.message.reply_text("Salam! {} Üçün kifayət qədər bir neçə parametr var. "
                                      "Davam edin və maraqlandığınızı seçin.".format(chat.title),
                                      reply_markup=InlineKeyboardMarkup(
                                          paginate_modules(curr_page - 1, CHAT_SETTINGS, "stngs",
@@ -306,7 +304,7 @@ def settings_button(bot: Bot, update: Update):
             chat_id = next_match.group(1)
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
-            query.message.reply_text("Salam! {} üçün kifayət qədər bir neçə parametr var🌲. "
+            query.message.reply_text("Salam! {} üçün kifayət qədər bir neçə parametr var. "
                                      "Davam edin və maraqlandığınızı seçin.".format(chat.title),
                                      reply_markup=InlineKeyboardMarkup(
                                          paginate_modules(next_page + 1, CHAT_SETTINGS, "stngs",
@@ -315,7 +313,7 @@ def settings_button(bot: Bot, update: Update):
         elif back_match:
             chat_id = back_match.group(1)
             chat = bot.get_chat(chat_id)
-            query.message.reply_text(text="Salam! {} üçün kifayət qədər bir neçə parametr var.🌲 "
+            query.message.reply_text(text="Salam! {} üçün kifayət qədər bir neçə parametr var. "
                                      "Davam edin və maraqlandığınızı seçin.".format(escape_markdown(chat.title)),
                                      parse_mode=ParseMode.MARKDOWN,
                                      reply_markup=InlineKeyboardMarkup(paginate_modules(0, CHAT_SETTINGS, "stngs",
@@ -345,14 +343,14 @@ def get_settings(bot: Bot, update: Update):
     # ONLY send settings in PM
     if chat.type != chat.PRIVATE:
         if is_user_admin(chat, user.id):
-            text = "Qrup ayarlarını əldə etmək üçün bura kliklə🎅☃️."
+            text = "Qrup ayarlarını əldə etmək üçün bura kliklə."
             msg.reply_text(text,
                            reply_markup=InlineKeyboardMarkup(
                                [[InlineKeyboardButton(text="Ayarlar",
                                                       url="t.me/{}?start=stngs_{}".format(
                                                           bot.username, chat.id))]]))
         else:
-            text = "Ayarlarıvı görmək üçün kliklə🌲."
+            text = "Ayarlarıvı görmək üçün kliklə."
 
     else:
         send_settings(chat.id, user.id, True)
@@ -367,7 +365,7 @@ def donate(bot: Bot, update: Update):
         update.effective_message.reply_text(DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
         if OWNER_ID != 254318997 and DONATION_LINK:
-            update.effective_message.reply_text("Sən həmçinin sahibimə bəxşiş də verə biləsən🌲🤗 "
+            update.effective_message.reply_text("Sən həmçinin sahibimə bəxşiş də verə biləsən"
                                                 "[buradan]({})".format(DONATION_LINK),
                                                 parse_mode=ParseMode.MARKDOWN)
 
@@ -375,7 +373,7 @@ def donate(bot: Bot, update: Update):
         try:
             bot.send_message(user.id, DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
-            update.effective_message.reply_text("Sahibimə bəxşiş göndərməklə bağlı sənə şəxsidən yazdım!🌲")
+            update.effective_message.reply_text("Sahibimə bəxşiş göndərməklə bağlı sənə şəxsidən yazdım!")
         except Unauthorized:
             update.effective_message.reply_text("PM də əlaqəyə keç.")
 
