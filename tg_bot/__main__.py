@@ -18,7 +18,7 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Salam {}, mənim adım *{}*dur! məni işlətmək ilə bağlı kömək almaq üçün /help yazmağın kifayətdir... 
+Salam {}, mənim adım *{}*! məni işlətmək ilə bağlı kömək almaq üçün /help yazmağın kifayətdir... 
 
 mən [bu insan](tg://user?id={}) tərəfindən tərcümə edilən tamamilə Azərbaycanca olan qrup idarə botuyam🇦🇿.
 
